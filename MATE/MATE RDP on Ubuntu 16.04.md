@@ -1,6 +1,3 @@
-Port Forwarding
-
-Allow port 3389 inbound
 
 http://c-nergy.be/blog/?p=9433
 
@@ -66,5 +63,10 @@ In order for the RDP to work on an Azure server, we need to enable this kind of 
 5. Wait for the rule to be made by Azure.
 
 ## Open up your RDP client, connect to the public IP or the DNS of your server ##
+![](https://i.gyazo.com/82ff8d59b848977596b3195b91d47a69.png)
 
+## Connect with your Azure VM user and PW to the XRDP session ##
+![](https://i.gyazo.com/81654b2d5ff31cb61f0465eb229d62d0.png)
 
+## Enjoy your MATE desktop ##
+![](https://i.gyazo.com/8c7dba3f28005ca018e887db7c166495.png)
