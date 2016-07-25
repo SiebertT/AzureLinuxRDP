@@ -1,17 +1,15 @@
-
-
-# Using XRDP with MATE desktop environment on Ubuntu 16.04 Azure Server #
+# Using XRDP with KDE desktop environment on Ubuntu 14.x Azure Server #
 
 ----------
 
-In this tutorial you will be guided through the steps to be able to RDP to your Ubuntu 16.04 Azure Servers GUI. 
+In this tutorial you will be guided through the steps to be able to RDP to your Ubuntu 14.x Azure Servers GUI. 
 
 After doing this you will be able to access your server anywhere through Windows RDP and configure your server through the GUI or use it as a workstation as you please.
 
 I found it annoying I could only use my Azure Linux VM's through the CLI so I figured this out for others as well. 
 
 ## Prerequisites ##
-1. You have created an Ubuntu Server 16.04 Virtual Machine on Azure (preferably a clean one to avoid problems).
+1. You have created an Ubuntu Server 14.x Virtual Machine on Azure (preferably a clean one to avoid problems).
 2. You have a telnet or SSH client installed such as [PuTTY](http://www.putty.org/ "PuTTY download") or [MobaXTerm](http://mobaxterm.mobatek.net/download.html "MobaXterm download") to connect to your console for the configuration.
 3. You have installed a Remote Desktop Client. In our case we use the standard Windows Remote Desktop Connection application.
 
@@ -21,10 +19,6 @@ First of all, we want to update our apt-get repositories.
 
     sudo apt-get update
 
-To use the XRDP script provided in one of the next steps, we need the package pkg-config.
-
-    sudo apt-get install pkg-config
-
 > By default the XRDP login will use an en-us keyboard. If this doesn't match yours and you want to switch it, we need a package and another command.
 
     sudo apt-get install x11-xkb-utils
@@ -32,24 +26,30 @@ To use the XRDP script provided in one of the next steps, we need the package pk
 the '-be' is for a Belgian keyboard. change it with one of [these](http://pastebin.com/v2vCPHjs "Keyboard Layout Values") keywords for your personal keyboard setup.
 
 ## Install your alternative desktop environment ##
-We need to install a desktop environment on top of our Ubuntu that is compatible with XRDP. In this tutorial it's the MATE desktop alternative.
+We need to install a desktop environment on top of our Ubuntu that is compatible with XRDP. In this tutorial it's the KDE desktop alternative.
 
-    sudo apt-get install mate-core mate-desktop-environment mate-notification-daemon
+    sudo apt-get install kubuntu-desktop
 
 > Make sure you have updated your apt-get repository!
 
-## Install the XRDP package ##
+## Install the XRDP package + configuration ##
 Now we need the XRDP package in order to be able to RDP to our new desktop environment!
 
     sudo apt-get install xrdp 
 
-Since Ubuntu 16.04 it is required that you specify that we want to use the MATE environment in the /etc/xrdp/startwm.sh file. For this we use the following command.
+We need to make clear to our Linux system that we want to connect to the KDE environment through RDP.
 
-    sudo sed -i.bak '/fi/a #xrdp multiple users configuration \n mate-session \n' /etc/xrdp/startwm.sh
+    echo startkde >~/.xsession
+
+Now we restart the service to make our configuration work. Restarting the server does the trick as well.
+
+    sudo service xrdp restart
 
 ## Open the RDP port on Azure ##
 
 In order for the RDP to work on an Azure server, we need to enable this kind of traffic with an inbound rule in the Security Group. The port we need is 3389.
+
+> note that the VM in the screenshots is using the environment of MATE, don't worry about this. It's exactly the same for every environment.
 
 1. Go to your Azure portal and navigate to your VM. Look for Network interfaces.
 ![](https://i.gyazo.com/fc9428da7ee7ed8bc9672d46830d0da0.png)
@@ -67,14 +67,14 @@ In order for the RDP to work on an Azure server, we need to enable this kind of 
 ## Connect with your Azure VM user and PW to the XRDP session ##
 ![](https://i.gyazo.com/81654b2d5ff31cb61f0465eb229d62d0.png)
 
-## Enjoy your MATE desktop ##
-![](https://i.gyazo.com/8c7dba3f28005ca018e887db7c166495.png)
+## Enjoy your KDE desktop ##
+![](https://i.gyazo.com/31d6722de01ec1c133f9fd7f3fcdf36c.png)
 
 ### Credits ###
-Sources for parts of this walkthrough were found at [c-nergy](http://c-nergy.be/blog/?p=9433), check them out if you're looking for more Linux guides.
+Sources for parts of this walk through were found at [c-nergy](http://c-nergy.be/), check them out if you're looking for more Linux guides.
 
 
 ## Author
 Siebert Timmermans, gitHub user: [SiebertT](https://github.com/SiebertT)
 
-7/25/2016 3:38:44 PM 
+7/25/2016 4:42:33 PM 
