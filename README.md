@@ -1,4 +1,6 @@
 # AzureLinuxRDP
-Guides and walkthroughs of how to install en enable a remote connection to a desktopversion of your Azure Linux VM
+Step by step walkthrough with screenshots of how to remotely connect to your Linux Ubuntu VM desktop version on Microsoft Azure.
 
-Look into the folder named by the Desktop Environment to start off your installation :)
+Check out the walkthroughs for each Desktop Environment named the same as the folder.
+
+I hope you find what you need!
