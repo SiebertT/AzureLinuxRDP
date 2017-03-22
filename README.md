@@ -1,13 +1,13 @@
 # AzureLinuxRDP
 
-![](https://camo.githubusercontent.com/d9ac0a591f0c7cafc5fb7f74c2c5983084797550/68747470733a2f2f692e6779617a6f2e636f6d2f39613839353362663837353436373566306330646435316464653361396335652e706e67)
-
 ![](https://camo.githubusercontent.com/3a7977f82965883a2ff44b96fa348616e5153cda/68747470733a2f2f692e6779617a6f2e636f6d2f38326666386435396238343839373735393662333139356239316434376136392e706e67)
 
-Step by step walkthrough with screenshots of how to remotely connect to your Linux Ubuntu VM desktop version on Microsoft Azure.
+![](https://camo.githubusercontent.com/d9ac0a591f0c7cafc5fb7f74c2c5983084797550/68747470733a2f2f692e6779617a6f2e636f6d2f39613839353362663837353436373566306330646435316464653361396335652e706e67)
 
-Check out the walkthroughs for each Desktop Environment named the same as the folder.
+# Step by step walkthrough with screenshots of how to remotely connect to your Linux Ubuntu VM desktop version on Microsoft Azure.
 
-There are currently guides available for MATE, LXQT and KDE.
+Check out the walkthroughs for each Desktop Environment **named the same as the folder.**
 
-I hope you find what you need!
+# There are currently guides available for MATE, LXQT and KDE.
+
+Enjoy ;)
